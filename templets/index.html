@@ -4,24 +4,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palindrome Checker</title>
+
+    <meta name="theme-color" content="#6d28d9">
+    <meta name="description"
+          content="Learn how palindromes work with our interactive Stack-based palindrome checker.">
+
+    <title>PalinGlow | Palindrome Checker</title>
+
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
+
 <body>
-    <main class="card">
-        <h1>Palindrome Checker</h1>
-        <p>Check words, numbers and sentences using Stack.</p>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
 
-        <input id="textInput" placeholder="Enter text, e.g. MADAM"
-               maxlength="500">
+    <header class="topbar">
+        <a href="#" class="brand" aria-label="PalinGlow home">
+            <span class="brand-icon">✦</span>
+            Palin<span>Glow</span>
+        </a>
 
-        <button id="checkButton">Check Palindrome</button>
+        <div class="top-pill">
+            <span class="live-dot"></span>
+            Python + DSA Project
+        </div>
+    </header>
 
-        <h2 id="result"></h2>
-        <p id="details"></p>
+    <main class="page-wrapper">
 
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-copy">
+                <div class="eyebrow">
+                    <span>✧</span> LEARN DSA THE FUN WAY
+                </div>
+
+                <h1>
+                    Words that look
+                    <span>the same</span>
+                    both ways.
+                </h1>
+
+                <p class="hero-description">
+                    Discover the magic of palindromes with an interactive
+                    checker powered by Python and the Stack data structure.
+                </p>
+
+                <a href="#checker" class="primary-link">
+                    Try it now <span>↘</span>
+                </a>
+
+                <div class="hero-stats">
+                    <div>
+                        <strong>01</strong>
+                        <span>Enter text</span>
+                    </div>
+                    <div>
+                        <strong>02</strong>
+                        <span>Check Stack</span>
+                    </div>
+                    <div>
+                        <strong>03</strong>
+                        <span>See result</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative illustration made with inline SVG -->
+            <div class="hero-art" aria-label="Illustration of a stack of books"
+                 role="img">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <span class="spark spark-one">✦</span>
+                <span class="spark spark-two">✧</span>
+                <span class="spark spark-three">✦</span>
+
+                <div class="art-bubble bubble-top">SAME ↔ SAME</div>
+                <div class="art-bubble bubble-bottom">LIFO MAGIC</div>
+
+                <svg class="book-illustration"
+                     viewBox="0 0 340 300"
+                     xmlns="http://www.w3.org/2000/svg"
+                     role="img"
+                     aria-label="Colorful books representing a data structure stack">
+
+                    <defs>
+                        <linearGradient id="bookPurple" x1="0" y1="0"
+                                        x2="1" y2="1">
+                            <stop offset="0" stop-color="#d8b4fe"/>
+                            <stop offset="1" stop-color="#9333ea"/>
+                        </linearGradient>
+
+                        <linearGradient id="bookBlue" x1="0" y1="0"
+                                        x2="1" y2="1">
+                            <stop offset="0" stop-color="#93c5fd"/>
+                            <stop offset="1" stop-color="#2563eb"/>
+                        </linearGradient>
+
+                        <linearGradient id="bookPink" x1="0" y1="0"
+                                        x2="1" y2="1">
+                            <stop offset="0" stop-color="#fbcfe8"/>
+                            <stop offset="1" stop-color="#ec4899"/>
+                        </linearGradient>
+                    </defs>
+
+                    <ellipse cx="170" cy="262" rx="125" ry="18"
+                             fill="#7c3aed" opacity=".15"/>
+
+                    <g class="floating-book">
+                        <path d="M65 195 L245 195 L273 212 L91 212 Z"
+                              fill="#6d28d9"/>
+                        <path d="M91 212 L273 212 L273 234 L91 234 Z"
+                              fill="#7e22ce"/>
+                        <path d="M65 195 L91 212 L91 234 L65 216 Z"
+                              fill="#c084fc"/>
+                        <path d="M100 219 L262 219"
+                              stroke="#e9d5ff" stroke-width="2"/>
+                        <path d="M100 226 L262 226"
+                              stroke="#e9d5ff" stroke-width="2"/>
+
+                        <path d="M84 156 L251 156 L274 172 L106 172 Z"
+                              fill="#2563eb"/>
+                        <path d="M106 172 L274 172 L274 193 L106 193 Z"
+                              fill="url(#bookBlue)"/>
+                        <path d="M84 156 L106 172 L106 193 L84 176 Z"
+                              fill="#60a5fa"/>
+                        <path d="M116 179 L264 179"
+                              stroke="#dbeafe" stroke-width="2"/>
+                        <path d="M116 186 L264 186"
+                              stroke="#dbeafe" stroke-width="2"/>
+
+                        <path d="M95 116 L234 116 L257 132 L118 132 Z"
+                              fill="#be185d"/>
+                        <path d="M118 132 L257 132 L257 153 L118 153 Z"
+                              fill="url(#bookPink)"/>
+                        <path d="M95 116 L118 132 L118 153 L95 137 Z"
+                              fill="#f9a8d4"/>
+                        <path d="M128 139 L248 139"
+                              stroke="#fdf2f8" stroke-width="2"/>
+
+                        <path d="M121 79 L216 79 L239 94 L144 94 Z"
+                              fill="#7e22ce"/>
+                        <path d="M144 94 L239 94 L239 114 L144 114 Z"
+                              fill="url(#bookPurple)"/>
+                        <path d="M121 79 L144 94 L144 114 L121 99 Z"
+                              fill="#e9d5ff"/>
+                        <path d="M151 101 L230 101"
+                              stroke="#f3e8ff" stroke-width="2"/>
+
+                        <text x="177" y="108" font-size="10"
+                              font-weight="bold" fill="#581c87"
+                              text-anchor="middle">STACK</text>
+                        <text x="190" y="147" font-size="10"
+                              font-weight="bold" fill="#9d174d"
+                              text-anchor="middle">PYTHON</text>
+                        <text x="188" y="188" font-size="10"
+                              font-weight="bold" fill="#1e3a8a"
+                              text-anchor="middle">ALGORITHMS</text>
+                    </g>
+
+                    <g fill="#fbbf24">
+                        <path d="M65 85 L69 96 L80 100 L69 104 L65 115 L61 104 L50 100 L61 96 Z"/>
+                        <path d="M264 65 L267 73 L275 76 L267 79 L264 87 L261 79 L253 76 L261 73 Z"/>
+                        <circle cx="91" cy="70" r="3"/>
+                        <circle cx="282" cy="111" r="4"/>
+                    </g>
+
+                    <g fill="#ffffff" opacity=".9">
+                        <circle cx="55" cy="143" r="3"/>
+                        <circle cx="286" cy="150" r="3"/>
+                        <path d="M285 54 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 Z"/>
+                    </g>
+                </svg>
+
+                <div class="art-caption">
+                    <span class="caption-icon">✧</span>
+                    Every character has a place.
+                </div>
+            </div>
+        </section>
+
+        <!-- CHECKER -->
+        <section class="checker-section" id="checker">
+            <div class="section-heading">
+                <span class="section-kicker">THE INTERACTIVE LAB</span>
+                <h2>Let's test your <span>word.</span></h2>
+                <p>Enter a word, number or sentence to begin.</p>
+            </div>
+
+            <div class="checker-card">
+                <div class="checker-top">
+                    <div class="checker-symbol">✧</div>
+                    <div>
+                        <h3>Palindrome Checker</h3>
+                        <p>Powered by Python & Stack</p>
+                    </div>
+                    <span class="status-badge">
+                        <span class="live-dot"></span> Ready
+                    </span>
+                </div>
+
+                <form id="checkerForm">
+                    <label for="textInput">YOUR TEXT</label>
+
+                    <div class="input-wrap">
+                        <span class="input-icon">✎</span>
+
+                        <input
+                            id="textInput"
+                            name="text"
+                            type="text"
+                            placeholder="Try MADAM, LEVEL, 12321..."
+                            maxlength="500"
+                            autocomplete="off"
+                            required
+                        />
+
+                        <button type="button" id="clearButton"
+                                class="clear-button"
+                                aria-label="Clear input"
+                                title="Clear input">×</button>
+                    </div>
+
+                    <div class="input-hint">
+                        <span>↳</span>
+                        Spaces and punctuation are ignored.
+                    </div>
+
+                    <button type="submit" id="checkButton"
+                            class="check-button">
+                        <span class="button-spark">✦</span>
+                        <span id="buttonText">Check My Palindrome</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+                </form>
+
+                <div id="resultPanel" class="result-panel" aria-live="polite">
+                    <div class="result-icon" id="resultIcon">✧</div>
+                    <div class="result-content">
+                        <span class="result-label" id="resultLabel">
+                            YOUR RESULT
+                        </span>
+                        <h3 id="result">Your result will appear here.</h3>
+                        <p id="details">
+                            Enter something above and click the button.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stack demonstration -->
+                <div class="stack-demo">
+                    <div class="stack-demo-heading">
+                        <div>
+                            <span class="section-kicker">BEHIND THE SCENES</span>
+                            <h3>See the Stack in action</h3>
+                        </div>
+                        <span class="lifo-tag">LIFO</span>
+                    </div>
+
+                    <p class="stack-description">
+                        Characters are pushed into a stack and popped out
+                        in reverse order.
+                    </p>
+
+                    <div class="stack-visual">
+                        <div class="stack-side">
+                            <span class="stack-label">INPUT</span>
+                            <div id="originalStack" class="character-row">
+                                <span class="char-chip">M</span>
+                                <span class="char-chip">A</span>
+                                <span class="char-chip">D</span>
+                                <span class="char-chip">A</span>
+                                <span class="char-chip">M</span>
+                            </div>
+                        </div>
+
+                        <div class="stack-arrow">→</div>
+
+                        <div class="stack-side">
+                            <span class="stack-label">POP ORDER</span>
+                            <div id="reverseStack" class="character-row">
+                                <span class="char-chip reverse-chip">M</span>
+                                <span class="char-chip reverse-chip">A</span>
+                                <span class="char-chip reverse-chip">D</span>
+                                <span class="char-chip reverse-chip">A</span>
+                                <span class="char-chip reverse-chip">M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="comparisonMessage" class="comparison-message">
+                        <span>✦</span>
+                        Try an example to see the comparison.
+                    </div>
+                </div>
+
+                <!-- Quick examples -->
+                <div class="examples">
+                    <div class="examples-heading">
+                        <h3>Need inspiration?</h3>
+                        <span>Try an example</span>
+                    </div>
+
+                    <div class="example-chips">
+                        <button type="button" class="example-chip"
+                                data-example="MADAM">MADAM <span>↗</span></button>
+                        <button type="button" class="example-chip"
+                                data-example="LEVEL">LEVEL <span>↗</span></button>
+                        <button type="button" class="example-chip"
+                                data-example="12321">12321 <span>↗</span></button>
+                        <button type="button" class="example-chip"
+                                data-example="HELLO">HELLO <span>↗</span></button>
+                        <button type="button" class="example-chip"
+                                data-example="Never odd or even">Never odd or even <span>↗</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT IS A PALINDROME -->
+        <section class="info-section">
+            <div class="section-heading">
+                <span class="section-kicker">THE CONCEPT</span>
+                <h2>What is a <span>palindrome?</span></h2>
+                <p>A little word magic explained simply.</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-visual">
+                    <span class="concept-orbit orbit-a"></span>
+                    <span class="concept-orbit orbit-b"></span>
+
+                    <span class="concept-small-label">FORWARD</span>
+                    <div class="word-display">M A D A M</div>
+                    <div class="double-arrow">↕</div>
+                    <span class="concept-small-label">BACKWARD</span>
+                    <div class="word-display reverse-word">M A D A M</div>
+                </div>
+
+                <div class="concept-copy">
+                    <span class="concept-number">01 / THE BASICS</span>
+                    <h3>Same from both directions.</h3>
+                    <p>
+                        A palindrome is a word, number or sentence that
+                        reads the same forward and backward after ignoring
+                        spaces, punctuation and letter case.
+                    </p>
+
+                    <ul class="concept-list">
+                        <li><span>✓</span> MADAM → MADAM</li>
+                        <li><span>✓</span> LEVEL → LEVEL</li>
+                        <li><span>✓</span> 12321 → 12321</li>
+                        <li><span>×</span> HELLO → OLLEH</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW TO USE -->
+        <section class="info-section">
+            <div class="section-heading">
+                <span class="section-kicker">QUICK GUIDE</span>
+                <h2>How to use <span>the app.</span></h2>
+                <p>Three simple steps. One clever data structure.</p>
+            </div>
+
+            <div class="steps-grid">
+                <article class="step-card">
+                    <div class="step-icon step-purple">✎</div>
+                    <span class="step-number">STEP 01</span>
+                    <h3>Enter your text</h3>
+                    <p>Type a word, number or sentence in the input field.</p>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-icon step-pink">↻</div>
+                    <span class="step-number">STEP 02</span>
+                    <h3>Run the checker</h3>
+                    <p>Click the button. Python checks your text using a Stack.</p>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-icon step-blue">✧</div>
+                    <span class="step-number">STEP 03</span>
+                    <h3>Explore the result</h3>
+                    <p>See if your text is a palindrome and compare both orders.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- DSA LEARNING -->
+        <section class="learning-banner">
+            <div class="learning-copy">
+                <span class="section-kicker">DSA CONCEPT SPOTLIGHT</span>
+                <h2>Meet the Stack.</h2>
+                <p>
+                    Stack follows LIFO: Last In, First Out. The last character
+                    pushed is the first one popped. That's how the checker
+                    obtains the reversed text.
+                </p>
+                <div class="complexity-row">
+                    <div>
+                        <span>TIME COMPLEXITY</span>
+                        <strong>O(n)</strong>
+                    </div>
+                    <div>
+                        <span>SPACE COMPLEXITY</span>
+                        <strong>O(n)</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-art" aria-hidden="true">
+                <div class="stack-block block-one">A</div>
+                <div class="stack-block block-two">D</div>
+                <div class="stack-block block-three">A</div>
+                <div class="stack-block block-four">M</div>
+                <div class="stack-base">STACK</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <a href="#" class="brand footer-brand">
+                <span class="brand-icon">✦</span>
+                Palin<span>Glow</span>
+            </a>
+
+            <p>Made with Python, Stack & a little bit of magic.</p>
+            <span class="footer-tag">PCC-201 · DATA STRUCTURE LAB</span>
+        </footer>
     </main>
 </body>
 </html>
