@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="card">
+        <h1>Palindrome Checker</h1>
+        <p>Check words, numbers and sentences using Stack.</p>
+
+        <input id="textInput" placeholder="Enter text, e.g. MADAM"
+               maxlength="500">
+
+        <button id="checkButton">Check Palindrome</button>
+
+        <h2 id="result"></h2>
+        <p id="details"></p>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </main>
+</body>
+</html>
